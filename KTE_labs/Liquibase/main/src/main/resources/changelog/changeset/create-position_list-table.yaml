@@ -1,0 +1,16 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-customer
+      author: Maksim Tebenkov
+      changes:
+        - createTable:
+            tableName: position_list
+            columns:
+              - column:
+                  name:sale_id
+                type: bigint
+
+
+                  - column:
+                name:goods_id
+                type: bigint

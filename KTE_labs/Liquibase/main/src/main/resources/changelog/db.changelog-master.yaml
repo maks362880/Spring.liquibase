@@ -1,0 +1,9 @@
+databaseChangeLog: #параметр в котором находятся миграции
+  - include: # список активных миграций
+      file: db/changelog/changeset/create-goods-table.yaml # путь к файлу миграции
+  - include:
+      file: db/changelog/changeset/create-customer-table.yaml
+  - include:
+      file: db/changelog/changeset/create-sale-table.yaml
+  - include:
+      file: db/changelog/changeset/create-position_list-table.yaml
