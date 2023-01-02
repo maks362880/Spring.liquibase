@@ -25,3 +25,18 @@ databaseChangeLog:
                   type: int
                   constraints:
                   nullable: false
+              - column:
+                  name: total_price
+                  type: decimal(18,2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: final_price
+                  type: decimal(18,2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: final_discount_%
+                  type: decimal(18,2)
+                  constraints:
+                    nullable: false
