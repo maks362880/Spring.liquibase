@@ -1,19 +1,23 @@
 package KTE_labs.liquibase.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "positin_list")
+@Table(name = "position_list")
 public class PositionList {
-//fk
-    @Column(name = "sale_id")
-    private int saleId;
-//fk
-    @Column(name = "goods_id")
-    private int goodsId;
+
+    @Id
+    @Column(name = "positin_list_id")
+    private int id;
+
+    @ManyToOne(cascade = CascadeType.ALL)//поменять CascadeType.ALL
+    @JoinColumn(name = "sale_id")
+    private Sale sale;
+
+    @ManyToOne(cascade = CascadeType.ALL)//поменять CascadeType.ALL
+    @JoinColumn(name = "goods_id")
+    private Goods goods;
 
     @Column(name = "total_price", nullable = false)
     private BigDecimal totalPrice;
@@ -33,20 +37,28 @@ public class PositionList {
         this.finalDiscountInPercent = finalDiscountInPercent;
     }
 
-    public int getSaleId() {
-        return saleId;
+    public int getId() {
+        return id;
     }
 
-    public void setSaleId(int saleId) {
-        this.saleId = saleId;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public int getGoodsId() {
-        return goodsId;
+    public Sale getSale() {
+        return sale;
     }
 
-    public void setGoodsId(int goodsId) {
-        this.goodsId = goodsId;
+    public void setSale(Sale sale) {
+        this.sale = sale;
+    }
+
+    public Goods getGoods() {
+        return goods;
+    }
+
+    public void setGoods(Goods goods) {
+        this.goods = goods;
     }
 
     public BigDecimal getTotalPrice() {
@@ -71,5 +83,17 @@ public class PositionList {
 
     public void setFinalDiscountInPercent(int finalDiscountInPercent) {
         this.finalDiscountInPercent = finalDiscountInPercent;
+    }
+
+    @Override
+    public String toString() {
+        return "PositionList{" +
+                "id=" + id +
+                ", sale=" + sale +
+                ", goods=" + goods +
+                ", totalPrice=" + totalPrice +
+                ", finalPrice=" + finalPrice +
+                ", finalDiscountInPercent=" + finalDiscountInPercent +
+                '}';
     }
 }

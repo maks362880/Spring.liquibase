@@ -2,6 +2,7 @@ package KTE_labs.liquibase.model;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name = "goods")
@@ -9,11 +10,11 @@ public class Goods {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id",nullable = false)
+    @Column(name = "goods_id",nullable = false)
     private int id;
 
     @Column(name = "product_name")
-    private String ProductName;
+    private String productName;
 
     @Column(name = "price")
     private BigDecimal price;
@@ -24,11 +25,14 @@ public class Goods {
     @Column(name = "customer_ratings")
     private BigDecimal customerRatings;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "goods")
+    private List<PositionList> positionList;
+
     public Goods() {
     }
 
     public Goods(String productName, BigDecimal price, String description, BigDecimal customerRatings) {
-        ProductName = productName;
+        this.productName = productName;
         this.price = price;
         this.description = description;
         this.customerRatings = customerRatings;
@@ -43,11 +47,11 @@ public class Goods {
     }
 
     public String getProductName() {
-        return ProductName;
+        return productName;
     }
 
     public void setProductName(String productName) {
-        ProductName = productName;
+        this.productName = productName;
     }
 
     public BigDecimal getPrice() {
@@ -72,5 +76,16 @@ public class Goods {
 
     public void setCustomerRatings(BigDecimal customerRatings) {
         this.customerRatings = customerRatings;
+    }
+
+    @Override
+    public String toString() {
+        return "Goods{" +
+                "id=" + id +
+                ", productName='" + productName + '\'' +
+                ", price=" + price +
+                ", description='" + description + '\'' +
+                ", customerRatings=" + customerRatings +
+                '}';
     }
 }

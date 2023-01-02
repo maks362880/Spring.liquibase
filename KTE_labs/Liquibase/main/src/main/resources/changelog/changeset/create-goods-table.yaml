@@ -4,10 +4,10 @@ databaseChangeLog:
       author: Maksim Tebenkov
       changes:
         - createTable:
-            tableName: article
+            tableName: goods
             columns:
               - column:
-                  name: id
+                  name: goods_id
                   type: bigint
                   autoIncrement: true
                   constraints:

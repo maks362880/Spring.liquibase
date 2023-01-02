@@ -2,6 +2,7 @@ package KTE_labs.liquibase.model;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Table(name = "sale")
 public class Sale {
@@ -19,6 +20,9 @@ public class Sale {
 
     @Column(name = "check_number", nullable = false)
     private int checkNumber;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "sale")
+    private List<PositionList> positionLists;
 
 
     public Sale() {
@@ -62,4 +66,21 @@ public class Sale {
         this.checkNumber = checkNumber;
     }
 
+    public List<PositionList> getPositionLists() {
+        return positionLists;
+    }
+
+    public void setPositionLists(List<PositionList> positionLists) {
+        this.positionLists = positionLists;
+    }
+
+    @Override
+    public String toString() {
+        return "Sale{" +
+                "id=" + id +
+                ", customerId=" + customerId +
+                ", date=" + date +
+                ", checkNumber=" + checkNumber +
+                '}';
+    }
 }
