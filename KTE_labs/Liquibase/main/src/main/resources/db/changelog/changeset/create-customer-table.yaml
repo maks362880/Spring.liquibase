@@ -15,7 +15,7 @@ databaseChangeLog:
                     nullable: false
               - column:
                   name: customer_name
-                  type: varchar
+                  type: varchar(100)
                   constraints:
                     nullable: false
               - column:

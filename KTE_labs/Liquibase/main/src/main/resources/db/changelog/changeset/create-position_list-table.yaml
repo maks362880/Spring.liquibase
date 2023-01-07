@@ -43,7 +43,7 @@ databaseChangeLog:
                   constraints:
                     nullable: false
               - column:
-                  name: final_discount_%
+                  name: final_discount
                   type: decimal(18,2)
                   constraints:
                     nullable: false

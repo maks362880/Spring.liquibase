@@ -15,7 +15,7 @@ databaseChangeLog:
                     nullable: false
               - column:
                   name: product_name
-                  type: varchar
+                  type: varchar(100)
                   constraints:
                     nullable: false
               - column:
@@ -24,14 +24,14 @@ databaseChangeLog:
                   constraints:
                     nullable: false
               - column:
-                  name: product_discount_%
+                  name: product_discount
                   type: int
                   constraints:
                     nullable: false
                     default: 0
               - column:
                   name: description
-                  type: varchar
+                  type: varchar(250)
                   constraints:
                     nullable: false
               - column:
