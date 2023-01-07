@@ -1,0 +1,33 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: create-sale
+      author: Maksim Tebenkov
+      changes:
+        - createTable:
+            tableName: sale
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: customer_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: customer_id_fk
+                    referencedTableName: customer
+                    referencedColumnNames: id
+              - column:
+                  name: sale_date
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: check_number
+                  type: int
+                  constraints:
+                    nullable: false

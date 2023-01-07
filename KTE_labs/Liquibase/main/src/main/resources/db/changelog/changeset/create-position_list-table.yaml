@@ -1,0 +1,49 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-position_list
+      author: Maksim Tebenkov
+      changes:
+        - createTable:
+            tableName: position_list
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: sale_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: sale_id_fk
+                    referencedTableName: sale
+                    referencedColumnNames: id
+              - column:
+                  name: goods_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: goods_id_fk
+                    referencedTableName: goods
+                    referencedColumnNames: id
+              - column:
+                  name: amount
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: total_price
+                  type: decimal(18,2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: final_price
+                  type: decimal(18,2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: final_discount_%
+                  type: decimal(18,2)
+                  constraints:
+                    nullable: false
