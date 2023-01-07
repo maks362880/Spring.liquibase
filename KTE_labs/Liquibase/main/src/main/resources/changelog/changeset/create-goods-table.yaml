@@ -7,7 +7,7 @@ databaseChangeLog:
             tableName: goods
             columns:
               - column:
-                  name: goods_id
+                  name: id
                   type: bigint
                   autoIncrement: true
                   constraints:
@@ -23,6 +23,12 @@ databaseChangeLog:
                   type: decimal(18,2)
                   constraints:
                     nullable: false
+              - column:
+                  name: product_discount_%
+                  type: int
+                  constraints:
+                    nullable: false
+                    default: 0
               - column:
                   name: description
                   type: varchar

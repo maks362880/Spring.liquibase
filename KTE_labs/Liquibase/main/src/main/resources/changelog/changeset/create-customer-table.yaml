@@ -7,7 +7,7 @@ databaseChangeLog:
             tableName: customer
             columns:
               - column:
-                  name: customer_id
+                  name: id
                   type: bigint
                   autoIncrement: true
                   constraints:

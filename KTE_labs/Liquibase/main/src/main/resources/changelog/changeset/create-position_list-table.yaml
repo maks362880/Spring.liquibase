@@ -7,7 +7,7 @@ databaseChangeLog:
             tableName: position_list
             columns:
               - column:
-                  name: position_list_id
+                  name: id
                   type: bigint
                   autoIncrement: true
                   constraints:

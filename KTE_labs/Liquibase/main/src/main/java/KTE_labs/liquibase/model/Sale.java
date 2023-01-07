@@ -2,7 +2,9 @@ package KTE_labs.liquibase.model;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
+
 @Entity
 @Table(name = "sale")
 public class Sale {
@@ -32,6 +34,14 @@ public class Sale {
         this.customerId = customerId;
         this.date = date;
         this.checkNumber = checkNumber;
+    }
+
+    public void addPositionListToSale(PositionList positionList) {
+        if (positionLists == null) {
+            positionLists = new ArrayList<>();
+        }
+        positionLists.add(positionList);
+        positionList.setSale(this);
     }
 
     public int getId() {
