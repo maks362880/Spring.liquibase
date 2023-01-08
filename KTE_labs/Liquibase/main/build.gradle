@@ -18,7 +18,3 @@ dependencies {
     implementation 'org.liquibase:liquibase-core:4.3.5'
     runtimeOnly 'org.postgresql:postgresql:42.2.23'
 }
-
-test {
-    useJUnitPlatform()
-}
